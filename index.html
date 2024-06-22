@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Contact form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="form-area">
+      <h1>Contact Us</h1>
+
+      <form class="contact-form">
+        <div class="name-section">
+          <div class="name-col" id="first-col">
+            <label
+              class="contact-form-label"
+              id="label-first-name"
+              for="input-first"
+              >First Name</label
+            >
+            <input type="text" class="form-input-text" id="input-first" />
+            <p class="form-input-error" id="error-name">
+              This field is required
+            </p>
+          </div>
+          <div class="name-col" id="last-col">
+            <label
+              class="contact-form-label"
+              id="label-last-name"
+              for="input-last"
+              >Last Name</label
+            >
+            <input type="text" class="form-input-text" id="input-last" />
+            <p class="form-input-error" id="error-last">
+              This field is required
+            </p>
+          </div>
+        </div>
+
+        <label class="contact-form-label" id="label-email">Email Address</label>
+        <input type="text" class="form-input" id="input-email" />
+        <p class="form-input-error" id="error-email">
+          This field is required
+        </p>
+        <p class="form-input-error" id="error-email-valid">
+          Please enter a valid email address
+        </p>
+
+        <label class="contact-form-label" id="label-query">Query type</label>
+        <div class="form-query-selection">
+          <div class="query-col" id="query-col-general">
+            <input
+              type="radio"
+              class="form-input"
+              id="input-general-enquiry"
+              name="query-type"
+            />
+            <label class="form-radio-label" for="input-general-enquiry"
+              >General Enquiry</label
+            >
+          </div>
+          <div class="query-col" id="query-col-general">
+            <input
+              type="radio"
+              class="form-input"
+              id="input-support-request"
+              name="query-type"
+            />
+            <label class="form-radio-label" for="input-support-request"
+              >Support Request</label
+            >
+          </div>
+        </div>
+        <p class="form-input-error" id="error-query">
+          Please select a query type
+        </p>
+
+        <label class="contact-form-label" id="label-message">Message</label>
+        <textarea id="msg-area"></textarea>
+        <p class="form-input-error" id="error-message">
+          This field is required
+        </p>
+        <div class="submit-section">
+          <input type="checkbox" class="form-consent" id="consent" />
+          <label for="consent" class="contact-form-label" id="consent-label"
+            >I consent to being contacted by the team
+          </label>
+        </div>
+        <p class="form-input-error" id="error-consent">
+          To submit this form, please consent to being contacted
+        </p>
+
+        <button type="submit" id="form-submit-btn">Submit</button>
+      </form>
+      <dialog class="success-message">
+        <div class="modal-headline"> 
+        <img src="assets/images/icon-success-check.svg" alt="success icon" />
+        <h2>Message Sent!</h2> </div>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+      </dialog>
+    </main>
+
+   
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
