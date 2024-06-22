@@ -54,7 +54,7 @@ input, textarea{
     height: var(--form-height);
     border-radius: var(--border-rad);
     margin: 10px 0 20px 0;
-    border: 1px solid black;
+    border: 1px solid var(--Grey500);
 }
 
 
@@ -82,7 +82,7 @@ input, textarea{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    border: 1px solid black;
+    border: 1px solid var(--Grey500);
     border-radius: var(--border-rad);
 }
 
