@@ -16,43 +16,46 @@ document.addEventListener("DOMContentLoaded", function () {
     let validFields = 0;
     e.preventDefault();
 
+    let showError = (element, error) => {
+      element.classList.add('red-border')
+      error.style.display = 'block';
+    };
+
+    let hideError = (element, error) =>{
+      element.classList.remove('red-border')
+      error.style.display = 'none';
+    }
+
     // checks for no answer in first name, last name or email
     for (i = 0; i < inputs.length; i++) {
       if (!inputs[i].value) {
-        inputs[i].nextElementSibling.style.display = "block";
-        inputs[i].classList.add("red-border");
+          showError(inputs[i],inputs[i].nextElementSibling)
       } else {
         validFields++;
-        inputs[i].classList.remove("red-border");
-        inputs[i].nextElementSibling.style.display = "none";
+        hideError(inputs[i],inputs[i].nextElementSibling)
       }
     }
     // validates email
     if (!email.value) {
-      email.classList.add("red-border");
-      missingEmail.style.display = "block";
+      hideError(email, invalidEmail)
+      showError(email, missingEmail)
     } else if (!email.value.match(emailRegex)) {
-      missingEmail.style.display = "none";
-      email.classList.add("red-border");
-
-      invalidEmail.style.display = "block";
+      hideError(email, missingEmail)
+      showError(email, invalidEmail)
     } else {
       validFields++;
-      email.classList.remove("red-border");
-      missingEmail.style.display = "none";
-      invalidEmail.style.display = "none";
+      hideError(email, missingEmail)
+      hideError(email, invalidEmail)
     }
     // validates message
     if (!msg.value) {
-      msg.nextElementSibling.style.display = "block";
-      msg.classList.add("red-border");
+      showError(msg,msg.nextElementSibling)
     } else {
       validFields++;
-      msg.classList.remove("red-border");
-      msg.nextElementSibling.style.display = "none";
+      hideError(msg,msg.nextElementSibling)
     }
-    //   validates query type
-    if (!radios[0].checked && !radios[1].checked) {
+    //  validates query type
+    if (![...radios].some(radio => radio.checked)) {
       queryError.style.display = "block";
     } else {
       validFields++;
@@ -65,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
       validFields++;
       consentError.style.display = "none";
     }
-
     // if all fields are valid
     if (validFields == allInputs.length) {
       successMsg = document.getElementsByClassName("success-message");
